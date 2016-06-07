@@ -1,22 +1,16 @@
 name: shadowsocks
-version: 2.8.2-1
+version: 2.8.2-2
 summary: A fast tunnel proxy that helps you bypass firewalls
 description: A fast tunnel proxy that helps you bypass firewalls
-icon: shadowsocks.png
 
 apps:
   sslocal:
     command: usr/bin/sslocal
-    uses: [listener-service]
+    plugs: [network, network-bind]
 
   ssserver:
     command: usr/bin/ssserver
-    uses: [listener-service]
-
-uses:
-  listener-service:
-    type: migration-skill
-    caps: [network-service]
+    plugs: [network, network-bind]
 
 parts:
   shadowsocks:
