@@ -2,6 +2,8 @@ name: shadowsocks
 version: 2.8.2-2
 summary: A fast tunnel proxy that helps you bypass firewalls
 description: A fast tunnel proxy that helps you bypass firewalls
+confinement: strict
+grade: stable
 
 apps:
   sslocal:
@@ -14,5 +16,6 @@ apps:
 
 parts:
   shadowsocks:
-    plugin: python2
+    plugin: python
+    python-version: python2
     source: ./2.8.2-snappy.tar.gz
