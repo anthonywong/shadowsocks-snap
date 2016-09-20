@@ -7,11 +7,11 @@ grade: stable
 
 apps:
   sslocal:
-    command: usr/bin/sslocal
+    command: bin/sslocal
     plugs: [network, network-bind]
 
   ssserver:
-    command: usr/bin/ssserver
+    command: bin/ssserver
     plugs: [network, network-bind]
 
 parts:
