@@ -1,5 +1,5 @@
 name: shadowsocks
-version: 2.9.1-2
+version: 2.9.1+git
 summary: A fast tunnel proxy that helps you bypass firewalls
 description: A fast tunnel proxy that helps you bypass firewalls
 confinement: strict
@@ -19,4 +19,8 @@ parts:
   shadowsocks:
     plugin: python
     python-version: python3
-    source: https://github.com/shadowsocks/shadowsocks/archive/2.9.1.tar.gz
+    source: https://github.com/shadowsocks/shadowsocks.git
+    source-branch: master
+    stage-packages:
+        - libsodium18
+
