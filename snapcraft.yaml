@@ -16,11 +16,20 @@ apps:
     plugs: [network, network-bind]
 
 parts:
+  stage-patch: 
+    plugin: dump
+    source: ./patch
+
   shadowsocks:
+    after: [stage-patch]
     plugin: python
     python-version: python3
     source: https://github.com/shadowsocks/shadowsocks.git
     source-branch: master
     stage-packages:
         - libsodium18
+        - libdb5.3
+    override-pull: |
+        snapcraftctl pull
+        patch -p0 < $SNAPCRAFT_STAGE/01-fix_find_library.patch
 

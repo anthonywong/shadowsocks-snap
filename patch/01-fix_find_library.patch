@@ -1,0 +1,11 @@
+--- shadowsocks/crypto/util.py.orig	2018-05-10 23:39:59.859330584 +0800
++++ shadowsocks/crypto/util.py	2018-05-10 23:40:48.004844647 +0800
+@@ -93,6 +93,8 @@
+                 '/usr/lib*/lib%s.*' % name,
+                 'lib%s.*' % name,
+                 '%s.dll' % name]
++            patterns.extend( map(lambda s: s+'/lib%s.*' % name,
++                  os.environ['LD_LIBRARY_PATH'].split(":")) )
+ 
+             for pat in patterns:
+                 files = glob.glob(pat)
