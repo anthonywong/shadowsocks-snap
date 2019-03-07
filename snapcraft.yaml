@@ -1,5 +1,5 @@
 name: shadowsocks
-version: 2.9.1-2
+version: 2.9.1-3
 summary: A fast tunnel proxy that helps you bypass firewalls
 description: A fast tunnel proxy that helps you bypass firewalls
 confinement: strict
@@ -20,3 +20,6 @@ parts:
     plugin: python
     python-version: python3
     source: https://github.com/shadowsocks/shadowsocks/archive/2.9.1.tar.gz
+    override-pull: |
+      snapcraftctl pull
+      patch -p0 < ../../../patches/01-fix_find_library.patch

@@ -1,0 +1,19 @@
+--- shadowsocks/crypto/util.py.orig	2019-03-07 21:11:54.958576581 +0800
++++ shadowsocks/crypto/util.py	2019-03-07 21:14:01.797408274 +0800
+@@ -57,7 +57,15 @@
+         if os.name == "nt":
+             paths.extend(find_library_nt(name))
+         else:
+-            path = ctypes.util.find_library(name)
++            import re
++            regex = r'lib{name}\.[^\s]+'.format(name=re.escape(name))
++            snap_root = os.environ.get('SNAP')
++            for root, directories, files in os.walk(snap_root):
++                for filename in files:
++                    res = re.search(regex, filename)
++                    if res:
++                        path = res.group(0)
++
+             if path:
+                 paths.append(path)
+ 
