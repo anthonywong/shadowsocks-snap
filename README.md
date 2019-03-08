@@ -6,6 +6,8 @@ The easiest way to install and get updates of the Shadowsocks client in Ubuntu a
 
 ## Install
 
+[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-white.svg)](https://snapcraft.io/shadowsocks)
+
 `sudo snap install shadowsocks`
 
 You can also use the `edge` channel, which is compiled from latest upstream git commit.
