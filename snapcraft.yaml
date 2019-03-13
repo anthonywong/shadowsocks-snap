@@ -30,15 +30,19 @@ parts:
     override-pull: |
       snapcraftctl pull
       patch -p0 < ../../../patches/01-fix_find_library.patch
+    filesets:
+      exclude-files:
+        - -usr/share/applications
+        - -usr/share/bug
+        - -usr/share/doc
+        - -usr/share/man
+        - -usr/share/dh-python
+        - -usr/share/lintian
+        - -usr/share/debhelper
+    stage:
+      - $exclude-files
     override-build: |
       snapcraftctl build
-      rm -rf $SNAPCRAFT_PART_INSTALL/usr/share/applications
-      rm -rf $SNAPCRAFT_PART_INSTALL/usr/share/bug
-      rm -rf $SNAPCRAFT_PART_INSTALL/usr/share/doc
-      rm -rf $SNAPCRAFT_PART_INSTALL/usr/share/man
-      rm -rf $SNAPCRAFT_PART_INSTALL/usr/share/dh-python
-      rm -rf $SNAPCRAFT_PART_INSTALL/usr/share/lintian
-      rm -rf $SNAPCRAFT_PART_INSTALL/usr/share/debhelper
-      install -m 444 -D $SNAPCRAFT_PART_BUILD/debian/ssserver.1 $SNAPCRAFT_PART_INSTALL/usr/share/man/man1/ssserver.1
-      install -m 444 -D $SNAPCRAFT_PART_BUILD/debian/sslocal.1 $SNAPCRAFT_PART_INSTALL/usr/share/man/man1/sslocal.1
+      install -m 444 -D $SNAPCRAFT_PART_BUILD/debian/ssserver.1 $SNAPCRAFT_PART_INSTALL/share/man/man1/ssserver.1
+      install -m 444 -D $SNAPCRAFT_PART_BUILD/debian/sslocal.1 $SNAPCRAFT_PART_INSTALL/share/man/man1/sslocal.1
       install -m 444 -D $SNAPCRAFT_PART_BUILD/debian/config.json $SNAPCRAFT_PART_INSTALL/etc/config.json
