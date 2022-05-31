@@ -27,7 +27,7 @@ parts:
     source-branch: master
     source-depth: 1
     stage-packages:
-      - libsodium18
+      - libsodium23
     override-pull: |
       snapcraftctl pull
       patch -p0 < ../../../patches/01-fix_find_library.patch
