@@ -8,6 +8,8 @@ description: |
 confinement: strict
 icon: shadowsocks-256px.png
 grade: stable
+base: core20
+source-code: https://github.com/anthonywong/shadowsocks-snap
 
 apps:
   sslocal:
