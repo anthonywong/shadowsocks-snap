@@ -2,7 +2,8 @@
 Snap package for [Shadowsocks](https://github.com/shadowsocks).
 The easiest way to install and get updates of the Shadowsocks client in Ubuntu and other Linux distros.
 
-[![Snap Status](https://build.snapcraft.io/badge/anthonywong/shadowsocks-snap.svg)](https://build.snapcraft.io/user/anthonywong/shadowsocks-snap)
+[![shadowsocks](https://snapcraft.io/shadowsocks/badge.svg)](https://snapcraft.io/shadowsocks)
+[![shadowsocks](https://snapcraft.io/shadowsocks/trending.svg?name=0)](https://snapcraft.io/shadowsocks)
 
 ## Install
 
