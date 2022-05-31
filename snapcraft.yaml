@@ -23,7 +23,6 @@ apps:
 parts:
   shadowsocks:
     plugin: python
-    python-version: python3
     source: https://github.com/shadowsocks/shadowsocks.git
     source-branch: master
     source-depth: 1
